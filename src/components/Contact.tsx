@@ -8,12 +8,41 @@ const Contact = () => {
     message: '',
   })
 
-  const handleSubmit = (e: FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('https://formspree.io/f/xgvpgjbn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -137,11 +166,39 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 hover:scale-105 glow font-medium flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className={`w-full px-6 py-3 rounded-lg transition-all duration-300 font-medium flex items-center justify-center gap-2 ${
+                  isSubmitting
+                    ? 'bg-gray-600 cursor-not-allowed'
+                    : submitStatus === 'success'
+                    ? 'bg-green-600 hover:bg-green-700'
+                    : submitStatus === 'error'
+                    ? 'bg-red-600 hover:bg-red-700'
+                    : 'bg-primary-600 hover:bg-primary-700 hover:scale-105 glow'
+                } text-white`}
               >
-                <span>Send Message</span>
+                <span>
+                  {isSubmitting
+                    ? 'Sending...'
+                    : submitStatus === 'success'
+                    ? 'Message Sent!'
+                    : submitStatus === 'error'
+                    ? 'Failed - Try Again'
+                    : 'Send Message'}
+                </span>
                 <Send size={20} />
               </button>
+
+              {submitStatus === 'success' && (
+                <p className="text-green-400 text-center text-sm">
+                  Thank you! I'll get back to you soon.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-400 text-center text-sm">
+                  Something went wrong. Please try again or email me directly.
+                </p>
+              )}
             </form>
           </div>
         </div>

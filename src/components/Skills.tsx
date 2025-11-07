@@ -1,16 +1,32 @@
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend',
-      skills: ['React.js', 'Tailwind CSS', 'HTML/CSS', 'JavaScript', 'Flutter'],
+      title: 'Technical Skills',
+      subsections: [
+        { subtitle: 'Front-End', skills: ['React.js', 'Tailwind CSS', 'HTML', 'CSS', 'JavaScript', 'Flutter'] },
+        { subtitle: 'Back-End', skills: ['PHP', 'Flutter'] },
+        { subtitle: 'Database', skills: ['Firebase Firestore', 'MySQL'] },
+        { subtitle: 'Tools & Platforms', skills: ['Git', 'GitHub', 'VS Code', 'Sublime Text'] },
+      ]
     },
     {
-      title: 'Backend & Database',
-      skills: ['PHP', 'MySQL', 'Firebase Firestore', 'Flutter Backend'],
+      title: 'AI-Assisted Development',
+      description: 'Experienced in prompt engineering to accelerate development and problem-solving, ensuring ethical and academically accepted practices.',
+      skills: ['GitHub Copilot', 'Cursor IDE', 'Windsurf', 'LLM-powered tools'],
     },
     {
-      title: 'Tools & AI Development',
-      skills: ['Git & GitHub', 'GitHub Copilot', 'Cursor IDE', 'Windsurf', 'VS Code', 'Figma'],
+      title: 'Project Management & Leadership',
+      description: 'Skilled in managing projects under Iterative Waterfall methodologies. Strong leadership, collaboration, and problem-solving abilities.',
+      skills: ['Iterative Waterfall', 'Team Leadership', 'Collaboration', 'Problem-Solving'],
+    },
+    {
+      title: 'Data Analysis',
+      description: 'Experienced in cleaning, organizing, and interpreting datasets to support system improvements and decision-making.',
+      skills: ['SQL Queries', 'Data Visualization', 'Data Cleaning', 'Dataset Interpretation', 'Reporting'],
+    },
+    {
+      title: 'Productivity & Office Tools',
+      skills: ['Microsoft Office Suite', 'Google Workspace', 'Zoom', 'Canva', 'Figma'],
     },
   ]
 
@@ -26,53 +42,50 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-8">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-primary-500 transition-all duration-300"
+              className="bg-gray-800/50 rounded-xl p-8 border border-gray-700 hover:border-primary-500 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold mb-6 text-primary-400">{category.title}</h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-4 py-2 bg-gray-700/50 text-gray-200 rounded-lg border border-gray-600 hover:border-primary-500 hover:text-primary-400 transition-all duration-300"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <h3 className="text-2xl font-bold mb-4 text-primary-400">{category.title}</h3>
+              
+              {category.description && (
+                <p className="text-gray-300 mb-6 leading-relaxed">{category.description}</p>
+              )}
+
+              {category.subsections ? (
+                <div className="space-y-4">
+                  {category.subsections.map((subsection, subIndex) => (
+                    <div key={subIndex}>
+                      <h4 className="text-lg font-semibold text-gray-200 mb-3">{subsection.subtitle}:</h4>
+                      <div className="flex flex-wrap gap-2 ml-4">
+                        {subsection.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="px-3 py-1 bg-gray-700/50 text-gray-200 rounded-lg border border-gray-600 hover:border-primary-500 hover:text-primary-400 transition-all duration-300 text-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-4 py-2 bg-gray-700/50 text-gray-200 rounded-lg border border-gray-600 hover:border-primary-500 hover:text-primary-400 transition-all duration-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
-        </div>
-
-        {/* Additional Skills */}
-        <div className="mt-12 text-center">
-          <h3 className="text-xl font-semibold mb-6 text-gray-300">Also Familiar With</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Sublime Text',
-              'Canva',
-              'Microsoft Office',
-              'Google Workspace',
-              'Zoom',
-              'Data Analysis',
-              'SQL Queries',
-              'Waterfall Methodology',
-              'Project Management',
-              'Prompt Engineering',
-              'Data Visualization',
-              'Team Leadership',
-            ].map((skill, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg border border-gray-700 hover:border-primary-500 hover:text-primary-400 transition-all duration-300"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
