@@ -1,26 +1,28 @@
 import { Github } from 'lucide-react'
 
 const Projects = () => {
+  const baseUrl = '/portfolio/'
+  
   const projects = [
     {
       title: 'Tomb Navigation & Contract Management System',
       description: 'Capstone project for Baliwag Municipal Cemetery featuring 360° image-based tomb navigation, kiosk-powered interface, and AI-generated contract records based on user preferences.',
       technologies: ['PHP', 'HTML', 'CSS', 'MySQL', 'AI Integration'],
-      image: '/images/cemetery-kiosk.png',
+      image: baseUrl + 'images/cemetery-kiosk.png',
       github: 'https://github.com/kimtanaka/cemetery-navigation',
     },
     {
       title: 'Brilliante Barbershop Booking System',
       description: 'Full-featured web-based booking system with secure database design, dynamic UI, appointment scheduling, payment handling, and comprehensive record management.',
       technologies: ['PHP', 'HTML', 'CSS', 'MySQL'],
-      image: '/images/barbershop-booking.png',
+      image: baseUrl + 'images/barbershop-booking.png',
       github: 'https://github.com/tanakakim120-afk/brilliante-barbershop',
     },
     {
       title: 'FJA Apartment Management System',
       description: 'Web-based system for streamlining tenant records, rent collection, and maintenance requests. Features apartment listings and online application system with secure MySQL data management.',
       technologies: ['PHP', 'HTML', 'CSS', 'MySQL'],
-      image: '/images/apartment-management.png',
+      image: baseUrl + 'images/apartment-management.png',
       github: 'https://github.com/kimtanaka/apartment-management',
     },
   ]
