@@ -71,6 +71,23 @@ Replace project images in `src/components/Projects.tsx` with your own images. Yo
 - Use external URLs (as currently configured)
 - Use image hosting services
 
+## 🚀 Live Site
+
+Visit: [https://tanakakim120-afk.github.io/portfolio/](https://tanakakim120-afk.github.io/portfolio/)
+
+## 🛠️ Built With
+
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- Lucide Icons
+
+## 📧 Contact
+
+- Email: tanakakim120@gmail.com
+- GitHub: [@tanakakim120-afk](https://github.com/tanakakim120-afk)
+
 ## Build for Production
 
 Create an optimized production build:
