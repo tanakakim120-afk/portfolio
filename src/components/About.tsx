@@ -1,79 +1,91 @@
-import { Code2, Rocket, Users, Award } from 'lucide-react'
+import { Briefcase, Code2, CheckCircle } from 'lucide-react'
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Code2,
-      title: 'Full-Stack Development',
-      description: 'Expert in building web and mobile applications using React, PHP, Flutter, and modern databases',
-    },
-    {
-      icon: Rocket,
-      title: 'AI-Assisted Development',
-      description: 'Proficient with GitHub Copilot, Cursor IDE, and LLM-powered tools for rapid, optimized coding',
-    },
-    {
-      icon: Users,
-      title: 'Project Leadership',
-      description: 'Skilled in managing projects under Iterative Waterfall with strong team collaboration',
-    },
-    {
-      icon: Award,
-      title: 'Dean\'s Lister',
-      description: 'Academic excellence at National University - Baliwag, BSIT specializing in Mobile & Web',
-    },
-  ]
-
   return (
-    <section id="about" className="py-20 bg-gray-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+    <section id="about" className="py-24 bg-[#E5E5E5]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="flex justify-center mb-12">
+          <h2 className="text-2xl font-bold tracking-[0.3em] uppercase border-4 border-black py-4 px-12 bg-[#E5E5E5] text-black">
+            ABOUT ME
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Passionate developer with a love for creating innovative solutions
+        </div>
+
+        {/* Text content */}
+        <div className="space-y-6 text-center max-w-3xl mx-auto mb-10">
+          <p className="text-gray-900 leading-relaxed font-medium text-sm">
+            Graduating BSIT student with hands-on experience in full-stack web and mobile application development and Software Quality Assurance (Manual Testing). Experienced in supporting the software development lifecycle through requirements analysis, system development, database management, test execution, bug identification, and validation.
+          </p>
+          <p className="text-gray-900 leading-relaxed font-medium text-sm">
+            Strong understanding of manual testing processes and QA documentation within structured development environments using the Waterfall methodology.
+          </p>
+          <p className="text-gray-900 leading-relaxed font-medium text-sm">
+            Detail-oriented, fast learner, and adaptable with strong analytical and problem-solving skills. Seeking opportunities in Software Development or Software Quality Assurance roles to apply technical skills, contribute to real-world projects, and grow professionally in the IT industry.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a BSIT student at National University - Baliwag (Dean's Lister), specializing in Mobile and Web Application development. 
-              I have a proven track record of delivering full-stack systems that solve real-world problems for businesses and communities.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              My expertise spans across web and mobile development using React.js, PHP, Flutter, and modern databases. 
-              I leverage AI-assisted development tools like GitHub Copilot and Cursor IDE to accelerate development while maintaining 
-              ethical and academically accepted practices.
-            </p>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              With strong project management skills using Iterative Waterfall methodologies, I excel at leading teams, 
-              analyzing data, and delivering user-centric solutions. I'm passionate about creating systems that make a real impact.
+        {/* Explore link */}
+        <div className="flex justify-center items-center space-x-3 text-xs font-bold uppercase tracking-[0.2em] text-black mb-16">
+          <span className="text-gray-400">|</span>
+          <a href="#skills" className="hover:underline">EXPLORE</a>
+          <span className="text-gray-400">|</span>
+        </div>
+
+        {/* Zig-zag Separator */}
+        <div className="flex items-center justify-center my-16 space-x-6">
+          <div className="h-[2px] w-24 bg-black"></div>
+          <svg className="w-16 h-4 text-black" viewBox="0 0 60 16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M 6,13 L 14,3 L 22,13 L 30,3 L 38,13 L 46,3 L 54,13" />
+          </svg>
+          <div className="h-[2px] w-24 bg-black"></div>
+        </div>
+
+        {/* Services / Offerings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 max-w-3xl mx-auto text-left mt-16 pb-8">
+          {/* Development */}
+          <div className="relative pl-14">
+            <div className="absolute left-0 top-1 text-black opacity-10">
+              <Code2 size={40} strokeWidth={1.5} />
+            </div>
+            <h3 className="font-bold tracking-[0.2em] text-sm mb-2 uppercase text-black">DEVELOPMENT</h3>
+            <p className="text-[11px] text-gray-700 leading-relaxed font-semibold">
+              I can build full-stack web and mobile applications from scratch, implementing clean, responsive, and performance-optimized architectures.
             </p>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-gray-800">
-              <div className="h-full flex items-center justify-center">
-                <Code2 size={200} className="text-primary-400/30" />
-              </div>
+          {/* Project Management */}
+          <div className="relative pl-14">
+            <div className="absolute left-0 top-1 text-black opacity-10">
+              <Briefcase size={40} strokeWidth={1.5} />
             </div>
+            <h3 className="font-bold tracking-[0.2em] text-sm mb-2 uppercase text-black">PROJECT MANAGEMENT</h3>
+            <p className="text-[11px] text-gray-700 leading-relaxed font-semibold">
+              I can manage project workflows within Agile/Scrum structures, coordinating team tasks, managing repositories, and ensuring quality releases.
+            </p>
+          </div>
+
+          {/* Quality Assurance */}
+          <div className="relative pl-14 md:col-span-2 md:max-w-sm md:mx-auto md:left-[-28px]">
+            <div className="absolute left-0 top-1 text-black opacity-10">
+              <CheckCircle size={40} strokeWidth={1.5} />
+            </div>
+            <h3 className="font-bold tracking-[0.2em] text-sm mb-2 uppercase text-black">SOFTWARE QUALITY ASSURANCE</h3>
+            <p className="text-[11px] text-gray-700 leading-relaxed font-semibold">
+              I can execute rigorous quality checks and debugging workflows to ensure application security, usability, and design precision.
+            </p>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlights.map((item, index) => (
-            <div
-              key={index}
-              className="p-6 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-primary-500 transition-all duration-300 hover:transform hover:scale-105"
-            >
-              <item.icon className="text-primary-400 mb-4" size={40} />
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-400">{item.description}</p>
-            </div>
-          ))}
+        {/* Zig-zag Separator */}
+        <div className="flex items-center justify-center my-16 space-x-6">
+          <div className="h-[2px] w-24 bg-black"></div>
+          <svg className="w-16 h-4 text-black" viewBox="0 0 60 16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M 6,13 L 14,3 L 22,13 L 30,3 L 38,13 L 46,3 L 54,13" />
+          </svg>
+          <div className="h-[2px] w-24 bg-black"></div>
         </div>
+
       </div>
     </section>
   )
