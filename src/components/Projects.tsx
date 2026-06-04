@@ -1,92 +1,181 @@
-import { Github } from 'lucide-react'
-
 const Projects = () => {
-  const baseUrl = '/portfolio/'
-  
   const projects = [
     {
-      title: 'Tomb Navigation & Contract Management System',
-      description: 'Capstone project for Baliwag Municipal Cemetery featuring 360° image-based tomb navigation, kiosk-powered interface, and AI-generated contract records based on user preferences.',
-      technologies: ['PHP', 'HTML', 'CSS', 'MySQL', 'AI Integration'],
-      image: baseUrl + 'images/cemetery-kiosk.png',
-      github: 'https://github.com/kimtanaka/cemetery-navigation',
+      title: 'Mayon Time Pieces',
+      subtitle: 'Software Quality Assurance Engineer | Backend Developer',
+      category: 'Internship Project',
+      image: '/portfolio/images/mayontimepieces.png',
+      technologies: [
+        'Next.js 15',
+        'React 19',
+        'TypeScript 5',
+        'Tailwind CSS',
+        'shadcn/ui',
+        'Radix UI',
+        'Supabase',
+        'PostgreSQL',
+        'PayPal SDK',
+        'Recharts'
+      ],
+      github: 'https://www.mayontime.com/',
+      description: 'Mayon Time Pieces is a modern web platform developed using Next.js, React, TypeScript, and Supabase. My primary responsibilities included Software Quality Assurance and Backend Development, ensuring platform reliability, functionality, and overall user experience.',
+      responsibilities: [
+        'Executed functional, usability, and regression testing across critical system features.',
+        'Identified, documented, and tracked software defects.',
+        'Collaborated with developers to verify bug fixes and improve system quality.',
+        'Assisted in backend development using Supabase and PostgreSQL.',
+        'Tested authentication workflows, payment processing, and user-facing features.',
+        'Participated in quality assurance reviews to ensure platform reliability and performance.'
+      ],
+      contributionTags: [
+        'Software Quality Assurance',
+        'Regression Testing',
+        'Bug Tracking',
+        'Backend Development',
+        'Authentication Testing',
+        'Payment Integration Testing'
+      ]
     },
     {
-      title: 'Brilliante Barbershop Booking System',
-      description: 'Full-featured web-based booking system with secure database design, dynamic UI, appointment scheduling, payment handling, and comprehensive record management.',
-      technologies: ['PHP', 'HTML', 'CSS', 'MySQL'],
-      image: baseUrl + 'images/barbershop-booking.png',
-      github: 'https://github.com/tanakakim120-afk/brilliante-barbershop',
-    },
-    {
-      title: 'FJA Apartment Management System',
-      description: 'Web-based system for streamlining tenant records, rent collection, and maintenance requests. Features apartment listings and online application system with secure MySQL data management.',
-      technologies: ['PHP', 'HTML', 'CSS', 'MySQL'],
-      image: baseUrl + 'images/apartment-management.png',
-      github: 'https://github.com/kimtanaka/apartment-management',
-    },
+      title: 'Vault77',
+      subtitle: 'Project Manager | Database Designer',
+      category: 'Internship Project',
+      image: '/portfolio/images/vault77.png', // Fallback placeholder
+      technologies: [
+        'Next.js 15',
+        'React 19',
+        'TypeScript 5',
+        'Tailwind CSS',
+        'shadcn/ui',
+        'Radix UI',
+        'Supabase',
+        'PostgreSQL'
+      ],
+      github: 'https://vault77.168-144-40-22.nip.io/',
+      description: 'Vault77 is a software project derived from the Mayon Time Pieces platform. I served as Project Manager and Database Designer, leading project coordination and designing the database architecture while collaborating closely with the development team.',
+      responsibilities: [
+        'Led project planning, coordination, and task management.',
+        'Designed and created the Entity Relationship Diagram (ERD) for the system database.',
+        'Managed communication and collaboration among team members.',
+        'Monitored project progress and ensured development milestones were met.',
+        'Assisted in software validation and quality review activities.',
+        'Worked closely with frontend and backend developers throughout the project lifecycle.'
+      ],
+      contributionTags: [
+        'Project Management',
+        'Database Design',
+        'ERD Development',
+        'Team Leadership',
+        'Agile Collaboration',
+        'Quality Review'
+      ]
+    }
   ]
 
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
+    <section id="portfolio" className="py-24 bg-[#E5E5E5] border-t border-black/10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center mb-16">
+          <h2 className="text-2xl font-bold tracking-[0.3em] uppercase border-4 border-black py-4 px-12 bg-[#E5E5E5] text-black">
+            Featured Projects
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A showcase of my recent work and personal projects
-          </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-gray-800/50 rounded-xl border border-gray-700 hover:border-primary-500 transition-all duration-300 overflow-hidden"
+            <div 
+              key={index} 
+              className="border-2 border-black bg-white flex flex-col justify-between hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden"
             >
-              <div className="grid md:grid-cols-5 gap-0">
-                {/* Image Section - Takes 3 columns */}
-                <div className="relative overflow-hidden md:aspect-auto md:col-span-3 bg-gray-900 flex items-center justify-center">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+              <div className="flex flex-col h-full justify-between">
+                <div>
+                  {/* Project Image */}
+                  <div className="aspect-[16/10] w-full border-b-2 border-black overflow-hidden bg-gray-100">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://placehold.co/600x375/000000/ffffff?text=${project.title.split(' ')[0]}`
+                      }}
+                    />
+                  </div>
 
-                {/* Content Section - Takes 2 columns */}
-                <div className="p-8 md:col-span-2">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-3xl font-bold group-hover:text-primary-400 transition-colors">
+                  <div className="p-6">
+                    {/* Category & Subtitle */}
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-[9px] font-bold bg-black text-white px-2 py-0.5 uppercase tracking-wider">
+                        {project.category}
+                      </span>
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="font-bold text-lg text-gray-900 uppercase tracking-wide leading-snug mb-1">
                       {project.title}
                     </h3>
-                  </div>
 
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">{project.description}</p>
+                    {/* Subtitle / Role */}
+                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-4">
+                      {project.subtitle}
+                    </span>
 
-                  <div className="flex flex-wrap gap-3 mb-6">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-4 py-2 bg-primary-500/10 text-primary-400 rounded-lg text-sm border border-primary-500/20 font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                    {/* Short Description */}
+                    <p className="text-xs text-gray-700 font-semibold mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
 
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-300 hover:text-primary-400 transition-colors"
-                    >
-                      <Github size={20} />
-                      <span>Code</span>
-                    </a>
+                    {/* Tech Stack Badges */}
+                    <div className="mb-4">
+                      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Tech Stack:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.technologies.map((tech, idx) => (
+                          <span 
+                            key={idx} 
+                            className="text-[8px] font-bold uppercase tracking-wider border border-black bg-[#E5E5E5] px-1.5 py-0.5 text-black"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Key Contributions / Responsibilities */}
+                    <div className="mb-4">
+                      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Key Responsibilities:</span>
+                      <ul className="list-disc list-outside ml-4 text-[11px] text-gray-800 space-y-1 leading-relaxed font-semibold">
+                        {project.responsibilities.map((bullet, idx) => (
+                          <li key={idx}>{bullet}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Contribution Tags */}
+                    <div className="mb-6">
+                      <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-2">Contributions:</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.contributionTags.map((tag, idx) => (
+                          <span 
+                            key={idx} 
+                            className="text-[8px] font-bold uppercase tracking-wider bg-black text-white px-2 py-0.5"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="p-6 pt-0">
+                  <a 
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-block text-center border-2 border-black py-2.5 text-xs font-bold uppercase tracking-widest text-black hover:bg-black hover:text-white transition-colors"
+                  >
+                    View Live Project →
+                  </a>
                 </div>
               </div>
             </div>
